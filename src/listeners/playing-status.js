@@ -10,7 +10,7 @@ function setPresence(client) {
 		status: 'online',
 		afk: false,
 		game: {
-			name: `${client.commandHandler.prefix()}help | ${client.commandHandler.prefix()}invite`,
+			name: `${client.commandHandler.prefix()[0]}help | ${client.commandHandler.prefix()[0]}invite`,
 			type: 0
 		}
 	});

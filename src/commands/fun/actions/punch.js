@@ -12,7 +12,12 @@ class PunchCommand extends Command {
                 id: 'input',
                 type: 'string',
                 match: 'rest'
-            }]
+            }],
+          	category:'ACTIONS',
+			      description:{
+			        content:"Punch that inadequate fool",
+			        usage:['r!punch <tag>','r!punch @Example#1234']
+        }
         });
     }
 

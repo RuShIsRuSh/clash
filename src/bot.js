@@ -10,7 +10,7 @@ const config = requireUtil('config');
 
 const client = new AkairoClient({
 	ownerID: config.owner,
-	prefix: config.prefix,
+	prefix: ['r!','riz ',''],
 	handleEdits: false,
 	commandUtil: true,
 	commandUtilLifetime: 600000,

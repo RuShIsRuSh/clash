@@ -12,7 +12,12 @@ class PokeCommand extends Command {
                 id: 'input',
                 type: 'string',
                 match: 'rest'
-            }]
+            }],
+          	category:'ACTIONS',
+			      description:{
+			        content:"Poke",
+			        usage:['r!poke <tag>','r!poke @Example#1234']
+        }
         });
     }
 

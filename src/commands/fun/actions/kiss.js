@@ -11,7 +11,12 @@ class KissCommand extends Command {
                 id: 'input',
                 type: 'string',
                 match: 'rest'
-            }]
+            }],
+          	category:'ACTIONS',
+			      description:{
+			        content:"Give that little lady (or golly gent) a peck for all of their hard work! <3",
+			        usage:['r!kiss <tag>','r!kiss @Example#1324']
+        }
         });
     }
 

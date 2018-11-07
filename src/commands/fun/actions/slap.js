@@ -12,7 +12,12 @@ class SlapCommand extends Command {
                 id: 'input',
                 type: 'string',
                 match: 'rest'
-            }]
+            }],
+          	category:'ACTIONS',
+			      description:{
+			        content:"Slap that inadequate fool",
+			        usage:['r!slap <tag>','r!slap @Example#1234']
+        }
         });
     }
 

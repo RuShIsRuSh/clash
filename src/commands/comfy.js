@@ -1,4 +1,4 @@
-const {URL} = require('url');
+/*const {URL} = require('url');
 const {Command} = require('discord-akairo');
 const fetch = require('make-fetch-happen').defaults(
 	requireUtil('fetch-defaults')
@@ -44,12 +44,12 @@ const options = {
  * @property {number} comfvalue The amount of comfiness which will occur for the user represented by the ID on the specified date
  */
 
-/**
+/*
  * Grabs the comfiness value from Seb's universal comfiness forecasting API
  * @param {string} id Some sort of identifier representing the user, can be any unique value related to them
  * @param {string|number|Date} [date='tomorrow'] The date to check, supports anything that can be parsed by JavaScript's Date objects, or keywords recognized by the API
  * @returns {Comfy} The comfiness value
- */
+ /
 function getComfy(id, date = 'tomorrow') {
 	const url = new URL('http://api.sebg.moe/comf/');
 
@@ -104,7 +104,7 @@ function getComfy(id, date = 'tomorrow') {
  * @param {number} size Size of the bar
  * @param {string[]} [chars] The characters to use, the lower the index the lower the progression
  * @returns {string} The progression bar
- */
+ /
 function bar(value, size, chars = [' ', '▌', '█']) {
 	let barString = '';
 
@@ -155,3 +155,4 @@ async function exec(message, args) {
 }
 
 module.exports = new Command('comfy', exec, options);
+*/

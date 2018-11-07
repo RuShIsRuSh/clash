@@ -12,7 +12,12 @@ class LewdCommand extends Command {
                 id: 'input',
                 type: 'string',
                 match: 'rest'
-            }]
+            }],
+          	category:'ACTIONS',
+			      description:{
+			        content:"L-L-l-Lewd Baka, doing something inappropriate",
+			        usage:['r!lewd']
+        }
         });
     }
 

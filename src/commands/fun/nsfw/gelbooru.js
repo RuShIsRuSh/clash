@@ -1,45 +1,42 @@
 const { Command } = require('discord-akairo');
-const request = require('snekfetch');
+const snekfetch = require('snekfetch');
 const Discord = require('discord.js');
-//const config = require('../../../config.json');
 const booru = require('booru');
 const errors = require('../../../../assets/json/errors');
-class KonachanCommand extends Command {
+
+class GelbooruCommand extends Command {
 	constructor() {
-		super('konachan', {
-            aliases: ['konachan','chan','sfwchan'],
+		super('gelbooru', {
+            aliases: ['gelbooru','gb'],
             channelRestriction: 'guild',
             args: [{
                 id: 'options',
-                type: ['sfw']
+                type: ['gb']
             }],
-			category:'FUN',
+			category:'NSFW',
 			description:{
-			content:"Get pictures from my fav website | SFW",
-			usage:['r!chan <tag>','r!chan loli']
+			content:"Yeah yeah",
+			usage:['r!gelbooru loli','r!gelbooru','r!gb loli','r!gb']
 		}
 		});
 	}
-	getRating(rating) {
-		if (rating === "s") return "Safe";
-		if (rating === "q") return "Questionable";
-		if (rating === "e") return "Explicit";
-		if (rating === "u") return "Unrated";
-	}
-    exec(message, args) {
-    var errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
-	var query = message.content.split(/\s+/g).slice(1).join(" ");
-    if (!message.channel.nsfw) {
+
+    async exec(message, args) {
+		var errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
+        if (!message.channel.nsfw) {
+            message.react('ðŸ’¢');
+            return message.channel.send(errMessage);
+        }
+		var query = message.content.split(/\s+/g).slice(1).join(" ");
 		//if (message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
-        booru.search('knet', [query], { limit: 1, random: true })
+        booru.search('gelbooru', [query], { limit: 75, random: true })
             .then(booru.commonfy)
             .then(images => {
                 for (let image of images) {
                     const embed = new Discord.RichEmbed()
-                        .setAuthor(`Konachan`, 'https://b.catgirlsare.sexy/NrAI.png')
-                        .setDescription(`**Score**: ${image.common.score}\n**Rating**: ${this.getRating(image.common.rating)}\n**Tags**:\n\n\`${image.common.tags}\``)
+                        .setAuthor(`Gelbooru | ${query}`, 'https://b.catgirlsare.sexy/NrAI.png')
+                        .setDescription(`[Image URL](${image.common.file_url})`)
                         .setImage(image.common.file_url)
-						            .setFooter(`Requested by ${message.author.username}`)
                         .setColor('#E89F3E');
                     return message.channel.send({ embed });
                 }
@@ -50,8 +47,7 @@ class KonachanCommand extends Command {
                     return message.channel.send(`No results found for **${query}**!`);
                 }
             })
-		}
     }
 }
 
-module.exports = KonachanCommand;
+module.exports = GelbooruCommand;
