@@ -28,7 +28,7 @@ class HelpCommand extends Command {
 			const embed = new Discord.RichEmbed()
 				.setColor(3447003)
 				.addField('Commands', stripIndents`A list of available commands.
-					For additional info on a command, type<:002mesenpai:501457040410148864>\`${prefix}help <command>\`
+					For additional info on a command, type<:002mesenpai:501457040410148864>\`${prefix[0]}help <command>\`
 				`);
 
 			for (const category of this.handler.categories.values()) {
